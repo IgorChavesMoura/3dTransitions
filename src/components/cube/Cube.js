@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import './cube.css';
 
+
 export default class Cube extends Component {
 
     constructor(){
@@ -17,17 +18,27 @@ export default class Cube extends Component {
 
         let xAngle = 0, yAngle = 0;
 
-        let props = 'transform WebkitTransform MozTransform OTransform msTransform'.split(' '),
-            prop,
-            el = document.createElement('div');
+        let transformProps = 'transform WebkitTransform MozTransform OTransform msTransform'.split(' ');
+        let transitionDurationProps = 'transitionDuration WebkitTransitionDuration MozTransitionDuration OTransitionDuration msTransitionDuration'.split(' ');
 
-        for(let i = 0, l = props.length; i < l; i++) {
-            if(typeof el.style[props[i]] !== "undefined") {
-                prop = props[i];
-                break;
+        const cube = document.getElementById('cube');
+        const cubeRect = cube.getBoundingClientRect();
+
+        let support = (props) => {
+
+            let el = document.createElement('div');
+
+            for(let i = 0, l = props.length; i < l; i++) {
+                if(typeof el.style[props[i]] !== "undefined") {
+                    return props[i];
+                    break;
+                }
             }
-        }
 
+        };
+
+        let transformProp = support(transformProps);
+        let transitionDurationProp = support(transitionDurationProps);
 
         document.addEventListener('keydown', (e) => {
         
@@ -58,13 +69,21 @@ export default class Cube extends Component {
                 break;       
             };
 
-            document.getElementById('cube').style[prop] = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg)";
+            cube.style[transformProp] = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg)";
         
         }, false);
         
-        document.getElementById('cube').addEventListener('mousedown touchstart', (e) => {
+        cube.addEventListener('mousemove', (e) => {
 
-            console.log('arrastou viado', e);
+            if(e.buttons > 0){
+
+                let deltaX = e.clientX - cube.offsetLeft;
+                
+                console.log(deltaX);
+
+            }
+
+            
 
 
         }, false);
@@ -76,7 +95,7 @@ export default class Cube extends Component {
     render(){
         return (
             <div id="experiment">
-                <div id="cube"  >
+                <div id="cube"  > 
                 
 
                     <div className="face previous">
@@ -84,7 +103,7 @@ export default class Cube extends Component {
                     </div>
                     <div className="face one">
                         Hihihi atual
-                    </div>
+                    </div>  
                     <div className="face next">
                         proximo Hihihi 
                     </div>
