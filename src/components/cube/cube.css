@@ -1,0 +1,48 @@
+#experiment {
+    -webkit-perspective: 700px;
+    -webkit-perspective-origin: 50% 200px;
+
+    margin-top: 150px;
+}
+
+#cube {
+    position: relative;
+    margin: 0 auto;
+    height: 400px;
+    width: 300px;
+    -webkit-transition: -webkit-transform 2s linear;
+    -webkit-transform-style: preserve-3d;
+}
+
+.face {
+    position: absolute;
+    height: 400px;
+    width: 270px;
+    padding: 20px;
+    background-color: rgba(50, 50, 50, 1);
+    color:#fff;
+    -webkit-transform: translateZ(160px);
+}
+
+/* #cube .one  {
+    -webkit-transform: rotateX(90deg) translateZ(200px);
+  } */
+  
+  
+  #cube .next {
+    -webkit-transform: rotateY(90deg) translateZ(160px);
+  }
+
+  #cube .previous {
+    -webkit-transform: rotateY(-90deg) translateZ(160px);
+  }
+  
+  /* #cube .four {
+    -webkit-transform: rotateY(180deg) translateZ(200px);
+  }
+  
+  
+  
+  #cube .six {
+    -webkit-transform: rotateX(-90deg) translateZ(200px) rotate(180deg);
+  } */
