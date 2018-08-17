@@ -28,13 +28,9 @@ export default class Cube extends Component {
             }
         }
 
-        
-        
 
         document.addEventListener('keydown', (e) => {
         
-            console.log(this.currentItemIndex);
-
             switch(e.keyCode) {
 
                 case 37: // left
@@ -58,17 +54,20 @@ export default class Cube extends Component {
                     this.currentItemIndex--;
 
                 }
-
                 
-                break;
-
-               
+                break;       
             };
 
             document.getElementById('cube').style[prop] = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg)";
         
         }, false);
         
+        document.getElementById('cube').addEventListener('mousedown touchstart', (e) => {
+
+            console.log('arrastou viado', e);
+
+
+        }, false);
         
 
 
@@ -77,7 +76,7 @@ export default class Cube extends Component {
     render(){
         return (
             <div id="experiment">
-                <div id="cube">
+                <div id="cube"  >
                 
 
                     <div className="face previous">

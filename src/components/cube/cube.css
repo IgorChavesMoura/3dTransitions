@@ -21,7 +21,7 @@
     padding: 20px;
     background-color: rgba(50, 50, 50, 1);
     color:#fff;
-    -webkit-transform: translateZ(160px);
+    -webkit-transform: translateZ(155px);
 }
 
 /* #cube .one  {
@@ -30,11 +30,11 @@
   
   
   #cube .next {
-    -webkit-transform: rotateY(90deg) translateZ(160px);
+    -webkit-transform: rotateY(90deg) translateZ(155px);
   }
 
   #cube .previous {
-    -webkit-transform: rotateY(-90deg) translateZ(160px);
+    -webkit-transform: rotateY(-90deg) translateZ(155px);
   }
   
   /* #cube .four {
